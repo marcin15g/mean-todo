@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { TodoService } from 'src/app/todo.service';
+import { Todo } from '../todo.model';
 
 @Component({
   selector: 'app-todo-create',
@@ -16,7 +17,7 @@ export class TodoCreateComponent implements OnInit {
 
   onAddTodo(newTodo: NgForm) {
     if(newTodo.invalid) return;
-    
+    this.todoService.addTodos(newTodo.value.todoInput);
     newTodo.resetForm();
   }
 

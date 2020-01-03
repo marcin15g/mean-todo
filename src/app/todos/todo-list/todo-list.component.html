@@ -1,1 +1,7 @@
-<p>todo-list works!</p>
+<mat-card *ngFor='let todo of todos'>
+    <mat-list role='list'>
+        <mat-list-item role='listitem'>
+            <h4>{{todo.title}}</h4>
+        </mat-list-item>
+    </mat-list>
+</mat-card>
