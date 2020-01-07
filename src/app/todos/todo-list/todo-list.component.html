@@ -1,7 +1,8 @@
-<mat-card *ngFor='let todo of todos'>
-    <mat-list role='list'>
-        <mat-list-item role='listitem'>
-            <h4>{{todo.title}}</h4>
-        </mat-list-item>
-    </mat-list>
-</mat-card>
+<mat-accordion>
+    <mat-expansion-panel *ngFor="let todo of todos">
+        <mat-expansion-panel-header>
+            <mat-panel-title>{{ todo.title }}</mat-panel-title>
+        </mat-expansion-panel-header>
+            {{todo.description}}
+    </mat-expansion-panel>
+</mat-accordion>

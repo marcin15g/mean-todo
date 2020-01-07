@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TodoHeaderComponent } from './todos/todo-header/todo-header.component';
 import { TodoCreateComponent } from './todos/todo-create/todo-create.component';
 import { TodoListComponent } from './todos/todo-list/todo-list.component';
+import { HttpClientModule } from '@angular/common/http';
 
 //Material imports
 import { MatButtonModule, MatInputModule } from '@angular/material';
@@ -14,6 +15,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
+import { MatExpansionModule } from '@angular/material/expansion';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { MatListModule } from '@angular/material/list';
     MatButtonModule,
     FormsModule,
     MatInputModule,
-    MatListModule
+    MatListModule,
+    MatExpansionModule,
+    MatCheckboxModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,9 +1,13 @@
 <mat-card>
-    <form class="flex" (submit)='onAddTodo(newTodo)' #newTodo='ngForm'>
+    <form (submit)='onAddTodo(newTodo)' #newTodo='ngForm'>
+        <mat-form-field class="title">
+            <mat-label>Title</mat-label>
+            <input matInput name='title' ngModel required #title='ngModel'>
+            <mat-error *ngIf='title.invalid'>Please enter Todo</mat-error>     
+        </mat-form-field> 
         <mat-form-field>
-            <mat-label>New Todo</mat-label>
-            <textarea matInput rows="1" name='todoInput' ngModel required #todo='ngModel'></textarea>
-            <mat-error *ngIf='todo.invalid'>Please enter Todo</mat-error>
+            <mat-label>Description</mat-label>
+            <textarea matInput rows="1" name='description' ngModel #description='ngModel' ></textarea>
         </mat-form-field>
         <button mat-raised-button color='primary' type='submit'>ADD</button>
     </form>

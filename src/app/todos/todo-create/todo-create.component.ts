@@ -17,7 +17,7 @@ export class TodoCreateComponent implements OnInit {
 
   onAddTodo(newTodo: NgForm) {
     if(newTodo.invalid) return;
-    this.todoService.addTodos(newTodo.value.todoInput);
+    this.todoService.addTodos(newTodo.value.title, newTodo.value.description);
     newTodo.resetForm();
   }
 
