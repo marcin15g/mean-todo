@@ -3,6 +3,7 @@
         <mat-expansion-panel-header>
             <mat-panel-title>{{ todo.title }}</mat-panel-title>
         </mat-expansion-panel-header>
-            {{todo.description}}
+            <p>{{todo.description}}</p>    
+            <button mat-button color='warn' (click)='onDelete(todo._id)'>DONE</button>     
     </mat-expansion-panel>
 </mat-accordion>

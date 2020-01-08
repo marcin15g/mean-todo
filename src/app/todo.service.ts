@@ -11,6 +11,10 @@ export class TodoService {
 
   constructor(private http: HttpClient) { }
 
+  getTodosUpdateListener() {
+    return this.todosUpdated.asObservable();
+  }
+
   getTodos() {
     this.http.get<{message: string, todos: Todo[]}>('http://localhost:3000/api/list')
     .subscribe((todoData) => {
@@ -19,14 +23,20 @@ export class TodoService {
     });
   }
 
-  getTodosUpdateListener() {
-    return this.todosUpdated.asObservable();
-  }
-
   addTodos(title: string, desc: string) {
-    const newTodo: Todo = {title: title, description: desc};
-    this.todos.push(newTodo);
-    this.todosUpdated.next([...this.todos]);
+    this.http.post<{message: string, newTodo: Todo}>('http://localhost:3000/api/list', {title: title, description: desc})
+      .subscribe((res) => {
+        this.todos.push(res.newTodo);
+        this.todosUpdated.next([...this.todos]);
+      });
   }
 
+  deleteTodo(todoId: string) {
+    this.http.delete('http://localhost:3000/api/list/' + todoId)
+      .subscribe(() => {       
+        const updatedTodos = this.todos.filter(todo => todo._id !== todoId);
+        this.todos = updatedTodos;
+        this.todosUpdated.next([...this.todos]);
+      });
+  }
 }
