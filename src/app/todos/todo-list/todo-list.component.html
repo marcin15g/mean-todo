@@ -1,9 +1,13 @@
 <mat-accordion>
     <mat-expansion-panel *ngFor="let todo of todos">
         <mat-expansion-panel-header>
-            <mat-panel-title>{{ todo.title }}</mat-panel-title>
-        </mat-expansion-panel-header>
+            <mat-panel-title>
+                <p>{{ todo.title }}</p>
+            </mat-panel-title>
+              </mat-expansion-panel-header>
             <p>{{todo.description}}</p>    
-            <button mat-button color='warn' (click)='onDelete(todo._id)'>DONE</button>     
+        <mat-action-row>
+            <button mat-button color='warn' (click)='onDelete(todo._id)'>DONE</button>  
+        </mat-action-row>  
     </mat-expansion-panel>
 </mat-accordion>

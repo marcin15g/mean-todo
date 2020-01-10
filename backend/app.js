@@ -10,7 +10,7 @@ mongoose.connect("mongodb+srv://admin:admin123@cluster0-fy6x7.mongodb.net/todo?r
     useUnifiedTopology: true
 })
     .then(() => {console.log('Connected to the database!')})
-    .catch((err) => {console.log(err)});
+    .catch(() => {console.log('Connection to database failed')});
 
 app.use(bodyParser.json());
 
